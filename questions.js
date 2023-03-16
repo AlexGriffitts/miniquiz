@@ -33,7 +33,7 @@ var questions = [
       question: "In mathematics, what term describes the bottom number in a fraction?",
       choices: ["Denominator", "Numerator", "Divisor", "Dividend"],
       correctAnswer: 0
-    }
+    },
 ];
 
 

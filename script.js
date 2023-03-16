@@ -1,7 +1,7 @@
 var startQuizbut = document.querySelector("#startQuiz");
-var startButton = document.querySelector("#startbutton");
+var startButton = document.querySelector("#startButton");
 var timer = document.querySelector("#seconds");
-var question = document.querySelector("#questions");
+var quizquest = document.querySelector("#quizquests");
 var Quizchoices = document.querySelector("#answers");
 var choiceA = document.querySelector("#A");
 var choiceB = document.querySelector("#B");
@@ -29,7 +29,7 @@ function startTimer() {
   time = 60;
   Userscore = 0;
   currentQuestion = 0;
-  var timer = setInterval(function() {
+  interval = setInterval(function() {
     time--;
     timer.textContent = time;
     }, 1000);
@@ -40,8 +40,8 @@ function startQuiz() {
   startTimer()
   startButton.innerHTML = "";
   score.innerHTML = "";
-  question.innerHTML = questions[currentQuestion].title;
-  
+  quizquest.innerHTML = questions[currentQuestion].title;
+ 
 
   //make buttons for choices
   for (i = 0; i < 4; i++) {
@@ -111,7 +111,7 @@ function displayResult() {
 function increaseQuestion() {
   currentQuestion++;
   if (currentQuestion < questions.length && time > 0) {
-    question.innerHTML = questions[currentQuestion].choices;
+    quizquest.innerHTML = questions[currentQuestion].choices;
     var choices = questions[currentQuestion].choices;
     choiceA.innerHTML = choices[0];
     choiceB.innerHTML = choices[1];
@@ -120,13 +120,13 @@ function increaseQuestion() {
   }else {
 
 
-   question.innerHTML = "You have finished the quiz with " + Userscore + " points!";
+   quizquest.innerHTML = "You have finished the quiz with " + Userscore + " points!";
     choiceA.innerHTML = "";
     choiceB.innerHTML = "";
     choiceC.innerHTML = "";
     choiceD.innerHTML = "";
     score.innerHTML = "";
-    time.innerHTML = "";
+    timer.innerHTML = "";
     highscore();
   // } else {
   //   question.innerHTML = questions[currentQuestion].title;
@@ -155,7 +155,7 @@ function increaseQuestion() {
 
     newForm.addEventListener("submit", function(event) {
       event.preventDefault();
-     question.innerHTML= "High Scores";
+     quizquest.innerHTML= "High Scores";
       var result = {initials: input.value, score: Userscore};
     });
 }
