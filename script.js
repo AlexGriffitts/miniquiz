@@ -1,4 +1,4 @@
-var startQuiz = document.querySelector("#startQuiz");
+var startQuizbut = document.querySelector("#startQuiz");
 var startButton = document.querySelector("#startbutton");
 var timer = document.querySelector("#seconds");
 var question = document.querySelector("#questions");
@@ -37,10 +37,11 @@ function startTimer() {
 
 //start quiz
 function startQuiz() {
-  startTime()
+  startTimer()
   startButton.innerHTML = "";
   score.innerHTML = "";
   question.innerHTML = questions[currentQuestion].title;
+  console.log(quiz-started)
 
   //make buttons for choices
   for (i = 0; i < 4; i++) {
@@ -150,5 +151,5 @@ function increaseQuestion() {
     });
 }
 }
-startButton.addEventListener("click", startQuiz, console.log("startQuiz"));
+startQuizbut.addEventListener("click", startQuiz, console.log("startQuiz"));
 
