@@ -3,7 +3,7 @@
 ## Description
 This project is the creation of a mini quiz from scratch
 
-[here is a link to the website.](https://github.com/AlexGriffitts/miniquiz)
+[here is a link to the website.](https://alexgriffitts.github.io/miniquiz/)
 
 
 
