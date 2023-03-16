@@ -1,6 +1,6 @@
 var startQuiz = document.querySelector("#startQuiz");
 var startButton = document.querySelector("#startbutton");
-var time = document.querySelector("#seconds");
+var timer = document.querySelector("#seconds");
 var question = document.querySelector("#questions");
 var Quizchoices = document.querySelector("#answers");
 var choiceA = document.querySelector("#A");
@@ -25,7 +25,7 @@ var currentQuestion = 0;
 var time = 60;
 
 //start timer
-function startTime() {
+function startTimer() {
   time = 60;
   Userscore = 0;
   currentQuestion = 0;
@@ -150,5 +150,5 @@ function increaseQuestion() {
     });
 }
 }
-startQuiz.addEventListener("click", startQuiz, console.log("startQuiz"));
+startButton.addEventListener("click", startQuiz, console.log("startQuiz"));
 
