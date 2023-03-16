@@ -41,7 +41,7 @@ function startQuiz() {
   startButton.innerHTML = "";
   score.innerHTML = "";
   question.innerHTML = questions[currentQuestion].title;
-  console.log("quiz started")
+  
 
   //make buttons for choices
   for (i = 0; i < 4; i++) {
