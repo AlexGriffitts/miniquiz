@@ -47,6 +47,7 @@ function startQuiz() {
   for (i = 0; i < 4; i++) {
     var buttons = document.createElement("button");
     buttons.innerHTML = questions[currentQuestion].choices[i];
+    
     Quizchoices.children[i].append(buttons);
     buttons.className = "btn btn-primary btn-lg btn-block";
   
@@ -55,7 +56,7 @@ function startQuiz() {
 
 //check if answer is correct
 choiceA.addEventListener("click", function() {
-  if (questions[currentQuestion].choices[0] === questions[currentQuestion].answer) {
+  if (questions[currentQuestion].choices[0] === questions[currentQuestion].correctAnswer) {
     isCorrect = true;
     displayResult();
   } else {
@@ -65,7 +66,7 @@ choiceA.addEventListener("click", function() {
 });
 
 choiceB.addEventListener("click", function() {
-  if (questions[currentQuestion].choices[1] === questions[currentQuestion].answer) {
+  if (questions[currentQuestion].choices[1] === questions[currentQuestion].correctAnswer) {
     isCorrect = true;
     displayResult();
   } else {
@@ -75,7 +76,7 @@ choiceB.addEventListener("click", function() {
 }); 
 
 choiceC.addEventListener("click", function() {  
-  if (questions[currentQuestion].choices[2] === questions[currentQuestion].answer) {
+  if (questions[currentQuestion].choices[2] === questions[currentQuestion].correctAnswer) {
     isCorrect = true;
     displayResult();
   } else {
@@ -85,7 +86,7 @@ choiceC.addEventListener("click", function() {
 });
 
 choiceD.addEventListener("click", function() {
-  if (questions[currentQuestion].choices[3] === questions[currentQuestion].answer) {
+  if (questions[currentQuestion].choices[3] === questions[currentQuestion].correctAnswer) {
     isCorrect = true;
     displayResult();
   } else {
@@ -96,12 +97,12 @@ choiceD.addEventListener("click", function() {
 
 //display result function
 function displayResult() {
-  if (isCorrect) {
-    Userscore += 10;
+  if (isCorrect === true) {
+    Userscore = Userscore + 10;
     score.innerHTML = "You Are Correct!";
     increaseQuestion();
   } else {
-    time -= 10;
+    time = time - 5;
     score.innerHTML = "You Are Wrong!";
     increaseQuestion();
   }                       
@@ -111,7 +112,7 @@ function displayResult() {
 function increaseQuestion() {
   currentQuestion++;
   if (currentQuestion < questions.length && time > 0) {
-    quizquest.innerHTML = questions[currentQuestion].choices;
+    quizquest.innerHTML = questions[currentQuestion].title;
     var choices = questions[currentQuestion].choices;
     choiceA.innerHTML = choices[0];
     choiceB.innerHTML = choices[1];
@@ -122,22 +123,17 @@ function increaseQuestion() {
 
    quizquest.innerHTML = "You have finished the quiz with " + Userscore + " points!";
     choiceA.innerHTML = "";
+    choiceA.setAttribute("style", "display: none");
     choiceB.innerHTML = "";
+    choiceB.setAttribute("style", "display: none");
     choiceC.innerHTML = "";
+    choiceC.setAttribute("style", "display: none");
     choiceD.innerHTML = "";
+    choiceD.setAttribute("style", "display: none");
     score.innerHTML = "";
     timer.innerHTML = "";
     highscore();
-  // } else {
-  //   question.innerHTML = questions[currentQuestion].title;
-    
-  //   var choices = questions[currentQuestion].choices;
-  //   var buttons = [choiceA, choiceB, choiceC, choiceD];
-  //   for (i = 0; i < 4; i++) {
-  //     buttons[i].innerHTML = choices[i];
-
-
-  //   }
+ 
   }
 
   //highscore function
@@ -145,6 +141,7 @@ function increaseQuestion() {
     score.appendChild(newForm);
     input.setAttribute("type", "text");
     input.setAttribute("name", "Enter Initials");
+    input.setAttribute("placeholder", "Enter Initials");
     input.className = "setInitials";
     submit.setAttribute("type", "submit");
     submit.setAttribute("value", "Submit");
@@ -157,6 +154,16 @@ function increaseQuestion() {
       event.preventDefault();
      quizquest.innerHTML= "High Scores";
       var result = {initials: input.value, score: Userscore};
+
+      localStorage.setItem("highscores", JSON.stringify(result));
+
+      var highscorestorage = JSON.parse(localStorage.getItem("highscores"));
+      console.log(highscorestorage);
+
+      for (var i = 0; i < highscorestorage.length; i++) {
+        var scoreItem = document.createElement("li");
+        scoreItem.textContent = highscorestorage[i].initials + " " + highscorestorage[i].score;
+      }
     });
 }
 }

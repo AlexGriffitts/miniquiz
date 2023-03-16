@@ -1,38 +1,38 @@
 var questions = [
     {
-        question: "What is the capital of France?",
+        title: "What is the capital of France?",
         choices: ["Paris", "London", "Berlin", "Rome"],
-        correctAnswer: 0
+        correctAnswer: "Paris"
     },
     {
-      question: "What four-legged animal is considered a marine mammal?",
+      title: "What four-legged animal is considered a marine mammal?",
       choices: ["Dog", "Cat", "Dolphin", "Polar Bear"],
-      correctAnswer: 3
+      correctAnswer: "Polar Bear"
     },
     {
-      question: "In The Wizard of Oz, what was the lion in search of?",
+      title: "In The Wizard of Oz, what was the lion in search of?",
       choices: ["A heart", "A brain", "A home", "Courage"],
-      correctAnswer: 3
+      correctAnswer: "Courage"
     },
     {
-      question: "What was the name of the military nobility of medieval and early-modern Japan?",
+      title: "What was the name of the military nobility of medieval and early-modern Japan?",
       choices: ["Samurai", "Ninja", "Shogun", "Ronin"],
-      correctAnswer: 0
+      correctAnswer: "Samurai"
     },
     {
-      question: "What is the name of the largest ocean on Earth?",
+      title: "What is the name of the largest ocean on Earth?",
       choices: ["Pacific", "Atlantic", "Indian", "Arctic"],
-      correctAnswer: 0
+      correctAnswer: "Pacific"
     },
     {
-      question: "How many candles are lit throughout the eight nights of Hanukkah?",
+      title: "How many candles are lit throughout the eight nights of Hanukkah?",
       choices: ["36", "8", "44", "24"],
-      correctAnswer: 2
+      correctAnswer: "44"
     },
     {
-      question: "In mathematics, what term describes the bottom number in a fraction?",
+      title: "In mathematics, what term describes the bottom number in a fraction?",
       choices: ["Denominator", "Numerator", "Divisor", "Dividend"],
-      correctAnswer: 0
+      correctAnswer: "Denominator"
     },
 ];
 
