@@ -31,7 +31,7 @@ function startTimer() {
   currentQuestion = 0;
   var timer = setInterval(function() {
     time--;
-    timer.textcontent = time;
+    timer.textContent = time;
     }, 1000);
   }
 
@@ -41,7 +41,7 @@ function startQuiz() {
   startButton.innerHTML = "";
   score.innerHTML = "";
   question.innerHTML = questions[currentQuestion].title;
-  console.log(quiz-started)
+  console.log("quiz started")
 
   //make buttons for choices
   for (i = 0; i < 4; i++) {
@@ -110,7 +110,16 @@ function displayResult() {
 //increase question function
 function increaseQuestion() {
   currentQuestion++;
-  if (currentQuestion < questions.length || time > 0) {
+  if (currentQuestion < questions.length && time > 0) {
+    question.innerHTML = questions[currentQuestion].choices;
+    var choices = questions[currentQuestion].choices;
+    choiceA.innerHTML = choices[0];
+    choiceB.innerHTML = choices[1];
+    choiceC.innerHTML = choices[2];
+    choiceD.innerHTML = choices[3];
+  }else {
+
+
    question.innerHTML = "You have finished the quiz with " + Userscore + " points!";
     choiceA.innerHTML = "";
     choiceB.innerHTML = "";
@@ -119,16 +128,16 @@ function increaseQuestion() {
     score.innerHTML = "";
     time.innerHTML = "";
     highscore();
-  } else {
-    question.innerHTML = questions[currentQuestion].title;
+  // } else {
+  //   question.innerHTML = questions[currentQuestion].title;
     
-    var choices = questions[currentQuestion].choices;
-    var buttons = [choiceA, choiceB, choiceC, choiceD];
-    for (i = 0; i < 4; i++) {
-      buttons[i].innerHTML = choices[i];
+  //   var choices = questions[currentQuestion].choices;
+  //   var buttons = [choiceA, choiceB, choiceC, choiceD];
+  //   for (i = 0; i < 4; i++) {
+  //     buttons[i].innerHTML = choices[i];
 
 
-    }
+  //   }
   }
 
   //highscore function
@@ -151,5 +160,7 @@ function increaseQuestion() {
     });
 }
 }
-startQuizbut.addEventListener("click", startQuiz, console.log("startQuiz"));
+startQuizbut.addEventListener("click", startQuiz);
+
+
 
